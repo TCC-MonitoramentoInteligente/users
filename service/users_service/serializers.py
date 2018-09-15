@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, Camera
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -7,9 +7,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     def create(self, validated_data):
         user = User(
-            username=validated_data.get('username', None),
             name=validated_data.get('name', None),
             email=validated_data.get('email', None),
+            last_name=validated_data.get('last_name', None),
+            address=validated_data.get('address', None),
             cpf=validated_data.get('cpf', None),
         )
         user.set_password(validated_data.get('password', None))
@@ -27,12 +28,16 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ('url', 'id', 'username',
-                  'password', 'name', 'last_name',
-                  'email', 'cpf'
-                  )
+        fields = ('url', 'id', 'email', 'password',
+                  'name', 'last_name', 'cpf', 'address')
         extra_kwargs = {
             'url': {
                 'view_name': 'users:user-detail',
             }
         }
+
+
+class CameraSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Camera
+        fields = '__all__'
