@@ -9,27 +9,25 @@
 ### Run
 `$ python3 service/manage.py runserver <IP_SERVICE>:8000`
 
-### SCHEMA
-```
-<User API "http://127.0.0.1:8000/docs/">
-    cameras: {
-        list()
-        create(id, model_name, common_name, user, [address])
-        read(id)
-        update(id, id, model_name, common_name, user, [address])
-        partial_update(id, [id], [model_name], [common_name], [address], [user])
-        delete(id)
-    }
+### API
+|    Function    | Method |       URL      |       Parameters (Request Body)       |
+|:--------------:|:------:|:--------------:|:-------------------------------------:|
+|      list      |   GET  |    /cameras/   |                                       |
+|     create     |  POST  |    /cameras/   |    id, model_name, [address], user    |
+|      read      |   GET  | /cameras/{id}/ |                                       |
+|     update     |   PUT  | /cameras/{id}/ |    id, model_name, [address], user    |
+| partial_update |  PATCH | /cameras/{id}/ | [id], [model_name], [address], [user] |
+|     delete     | DELETE | /cameras/{id}/ |                                       |
 
-    users: {
-        list()
-        create(email, password, name, cpf, [last_name], [address])
-        read(id)
-        update(id, email, password, name, cpf, [last_name], [address])
-        partial_update(id, [email], [password], [name], [last_name], [cpf], [address])
-        delete(id)
-    }
-```
+|    Function    | Method |     URL     |                  Parameters (Request Body)                 |
+|:--------------:|:------:|:-----------:|:----------------------------------------------------------:|
+|      list      |   GET  |   /users/   |                                                            |
+|     create     |  POST  |   /users/   |     email, password, name, [last_name], cpf, [address]     |
+|      read      |   GET  | /users/{id} |                                                            |
+|     update     |   PUT  | /users/{id} |     email, password, name, [last_name], cpf, [address]     |
+| partial_update |  PATCH | /users/{id} | [email], [password], [name], [last_name], [cpf], [address] |
+|     delete     | DELETE | /users/{id} |                                                            |
+
 ### Usage examples
 - Running  
 `$ python3 service/manage.py runserver 127.0.0.1:8000`  
