@@ -12,10 +12,8 @@ class UserList(generics.ListCreateAPIView):
 
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
     serializer_class = UserSerializer
-
-    def get_queryset(self):
-        return User.objects.all().filter(email=self.request.user)
 
 
 class CameraList(generics.ListCreateAPIView):
@@ -24,10 +22,5 @@ class CameraList(generics.ListCreateAPIView):
 
 
 class CameraDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Camera.objects.all()
     serializer_class = CameraSerializer
-
-    def get_queryset(self):
-        if self.request.user.is_anonymous:
-            # Return a empty query_set
-            return []
-        return Camera.objects.all().filter(user=self.request.user)

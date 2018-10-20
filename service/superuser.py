@@ -1,4 +1,8 @@
+import os
 import django
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "service.settings")
+
 django.setup()
 
 from users_service.models import User
