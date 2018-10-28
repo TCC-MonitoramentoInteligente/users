@@ -5,12 +5,11 @@
 1. Create virtualenv `$ virtualenv --system-site-packages -p python3 venv`
 2. Activate virtualenv `$ source venv/bin/activate`
 3. Install requirements `$ pip install -r requirements.txt`
-
-
+4. Set the variable `USER_SERVER` (`users/service/settings.py`) 
 
 ### Run
-`$ python3 service/manage.py makemigrations`
-`$ python3 service/manage.py migrate`
+`$ python3 service/manage.py makemigrations`  
+`$ python3 service/manage.py migrate`  
 `$ python3 service/manage.py runserver <USER_SERVER>:8080`
 
 ### API
@@ -34,7 +33,7 @@
 
 ### Usage examples
 - Running  
-`$ python3 service/manage.py runserver 127.0.0.1:8000`  
+`$ python3 service/manage.py runserver 127.0.0.1:8080`  
 - Create a user (as a staff user)  
 `$ python3 service/superuser.py` 
 - Create a user  
