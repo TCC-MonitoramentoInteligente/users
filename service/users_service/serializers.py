@@ -9,8 +9,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         user = User(
             name=validated_data.get('name', None),
             email=validated_data.get('email', None),
-            last_name=validated_data.get('last_name', None),
-            address=validated_data.get('address', None),
+            address=validated_data.get('address', ""),
             cpf=validated_data.get('cpf', None),
         )
         user.set_password(validated_data.get('password', None))
@@ -29,7 +28,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ('url', 'id', 'email', 'password',
-                  'name', 'last_name', 'cpf', 'address')
+                  'name', 'cpf', 'address')
         extra_kwargs = {
             'url': {
                 'view_name': 'users:user-detail',

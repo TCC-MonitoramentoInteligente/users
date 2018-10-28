@@ -1,5 +1,3 @@
-
-
 from .models import User, Camera
 from rest_framework import generics
 

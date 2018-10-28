@@ -88,10 +88,11 @@ class UserManager(BaseUserManager):
 
 class User(AbstractUser):
     username = None
+    last_name = None
     name = models.CharField(max_length=50, null=False, blank=False)
     cpf = models.CharField(unique=True, max_length=14, validators=[validate_cpf])
     email = models.EmailField('Email Address', unique=True)
-    address = models.CharField(max_length=100, null=False, blank=True)
+    address = models.CharField(max_length=100, null=False, blank=True, default="")
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -103,4 +104,4 @@ class Camera(models.Model):
     id = models.CharField(primary_key=True, max_length=10)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='dono', on_delete=models.CASCADE)
     model_name = models.CharField(max_length=50)
-    address = models.CharField(max_length=100, null=False, blank=True)
+    address = models.CharField(max_length=100, null=False, blank=True, default="")

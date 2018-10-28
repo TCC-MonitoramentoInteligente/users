@@ -6,8 +6,12 @@
 2. Activate virtualenv `$ source venv/bin/activate`
 3. Install requirements `$ pip install -r requirements.txt`
 
+
+
 ### Run
-`$ python3 service/manage.py runserver <IP_SERVICE>:8000`
+`$ python3 service/manage.py makemigrations`
+`$ python3 service/manage.py migrate`
+`$ python3 service/manage.py runserver <USER_SERVER>:8080`
 
 ### API
 |    Function    | Method |       URL      |       Parameters (Request Body)       |
