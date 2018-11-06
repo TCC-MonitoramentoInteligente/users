@@ -25,7 +25,7 @@ SECRET_KEY = 'mib*&ejccz_#e!m9&_rhbo=-n-%^fnq-ol$p0pz8$od%g&#om9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-USER_SERVER = '10.1.0.3'
+USER_SERVER = '10.1.0.6'
 
 ALLOWED_HOSTS = [
     USER_SERVER,
